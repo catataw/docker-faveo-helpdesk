@@ -1,0 +1,27 @@
+version: '2'
+services:
+    faveo:
+       build: .
+       environment:
+         - DATBASE_TYPE=mysql
+         - DATBASE_HOST=db
+         - DATBASE_NAME=faveo
+         - DATBASE_USER=faveo
+         - DATBASE_PASSWORD=faveo
+       links:
+         - db
+       ports:
+         - 80
+       volumes:
+        - ./app/log:/opt/faveo/log    
+    db:
+      image: mariadb:10.1.10
+      ports:
+        - "3306:3306"
+      volumes:
+        - /var/lib/mysql    
+      environment:
+        - MYSQL_ROOT_PASSWORD=faveo
+        - MYSQL_DATABASE=faveo
+        - MYSQL_USER=faveo
+        - MYSQL_PASSWORD=faveo        
