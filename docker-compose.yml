@@ -1,7 +1,7 @@
 version: '2'
 services:
     faveo:
-       build: .
+       image: catataw/faveo-helpdesk
        environment:
          - DATBASE_TYPE=mysql
          - DATBASE_HOST=db
@@ -17,7 +17,7 @@ services:
     db:
       image: mariadb:10.1.10
       ports:
-        - "3306:3306"
+        - 3306
       volumes:
         - /var/lib/mysql    
       environment:
