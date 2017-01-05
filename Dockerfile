@@ -19,7 +19,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # creating directories and cloning repository
 RUN mkdir -p /opt/faveo/log && mkdir -p /opt/faveo/run;
 RUN git clone https://github.com/ladybirdweb/faveo-helpdesk.git /opt/faveo/faveo-helpdesk && chown www-data:www-data /opt/faveo -R 
-RUN rm -r -f etc/nginx/conf.d/
+RUN rm -r -f /etc/nginx/conf.d/
 
 WORKDIR /opt/faveo/
 
